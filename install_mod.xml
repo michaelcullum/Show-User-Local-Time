@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (offline version)"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[Show User Time]]></title>
+		<description lang="en"><![CDATA[This shows the user's local time on the viewtopic, profile and memberlist pages.]]></description>
+		<author-group>
+			<author>
+				<realname><![CDATA[Michael C.]]></realname>
+				<username><![CDATA[Unknown Bliss]]></username>
+				<email><![CDATA[sa.chelsea@live.co.uk]]></email>
+			</author>
+		</author-group>
+		<mod-version>0.0.1</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>240</time>
+			<target-version>3.0.7-PL1</target-version>
+		</installation>
+	</header>
+	<action-group>
+		<open src="viewtopic.php">
+			<edit>
+				<find><![CDATA['from'         => '',]]></find>
+				<action type="after-add"><![CDATA['user_time'      => '',]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[      'from'         => (!empty($row['user_from'])) ? $row['user_from'] : '',]]></find>
+				<action type="after-add"><![CDATA[            'user_time'      => gmdate($user->date_format, time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[      'POSTER_AGE'      => $user_cache[$poster_id]['age'],]]></find>
+				<action type="after-add"><![CDATA[      'POSTER_LOCAL_TIME'   => $user_cache[$poster_id]['user_time'],]]></action>
+			</edit>
+		</open>
+		<open src="language/en/common.php">
+			<edit>
+				<find><![CDATA[   'LEGEND'                     => 'Legend',]]></find>
+				<action type="after-add"><![CDATA[   'LOCAL_TIME'                  => 'Local time',]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/viewtopic_body.html">
+			<edit>
+				<find><![CDATA[      <!-- IF postrow.POSTER_FROM --><dd><strong>{L_LOCATION}:</strong> {postrow.POSTER_FROM}</dd><!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[      <!-- IF postrow.POSTER_LOCAL_TIME --><dd><strong>{L_LOCAL_TIME}:</strong> {postrow.POSTER_LOCAL_TIME}</dd><!-- ENDIF -->]]></action>
+			</edit>
+		</open>
+		<diy-instructions lang="en"><![CDATA[Refresh your cache
+Rrefresh your prosilver templates.]]></diy-instructions>
+	</action-group>
+</mod>
