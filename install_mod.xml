@@ -73,7 +73,7 @@
 		<th class="info">&nbsp;</th>
 		<th class="joined">&nbsp;</th></find>]]></find>
 				<action type="after-add"><![CDATA[		<th class="ltime">&nbsp;</th>]]></action>
-		</open>
+
 		<open src="memberlist.php">
 			<edit>
 				<find><![CDATA[					'S_CUSTOM_PROFILE'	=> (isset($cp_row['row']) && sizeof($cp_row['row'])) ? true : false,
