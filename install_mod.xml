@@ -25,21 +25,21 @@
 	<action-group>
 		<open src="viewtopic.php">
 			<edit>
-				<find><![CDATA['from'         => '',]]></find>
+				<find><![CDATA[				'from'			=> '',]]></find>
 				<action type="after-add"><![CDATA['user_time'      => '',]]></action>
 			</edit>
 			<edit>
-				<find><![CDATA[      'from'         => (!empty($row['user_from'])) ? $row['user_from'] : '',]]></find>
+				<find><![CDATA[				'from'			=> (!empty($row['user_from'])) ? $row['user_from'] : '',]]></find>
 				<action type="after-add"><![CDATA[            'user_time'      => gmdate($user->date_format, time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
 			</edit>
 			<edit>
-				<find><![CDATA[      'POSTER_AGE'      => $user_cache[$poster_id]['age'],]]></find>
+				<find><![CDATA[		'POSTER_AGE'		=> $user_cache[$poster_id]['age'],]]></find>
 				<action type="after-add"><![CDATA[      'POSTER_LOCAL_TIME'   => $user_cache[$poster_id]['user_time'],]]></action>
 			</edit>
 		</open>
 		<open src="language/en/common.php">
 			<edit>
-				<find><![CDATA[   'LEGEND'                     => 'Legend',]]></find>
+				<find><![CDATA[	'LEGEND'							=> 'Legend',]]></find>
 				<action type="after-add"><![CDATA[   'LOCAL_TIME'                  => 'Local time',]]></action>
 			</edit>
 		</open>
