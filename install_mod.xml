@@ -51,17 +51,20 @@
 		</open>
 		<open src="styles/prosilver/template/memberlist_body.html">
 			<edit>
-				<find><![CDATA[		<tr>				<th class="name"><span class="rank-img"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></th>				<th class="posts"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></th>				<th class="info"><a href="{U_SORT_WEBSITE}#memberlist">{L_WEBSITE}</a>{L_COMMA_SEPARATOR}<a href="{U_SORT_LOCATION}">{L_LOCATION}</a></th>				<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
+				<find><![CDATA[<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
 				<action type="after-add"><![CDATA[			<th class="ltime"><a href="{U_SORT_LTIME}#memberlist">{L_LOCAL_TIME}</a></th>]]></action>
 			</edit>
 			<edit>
-				<find><![CDATA[	<!-- IF not S_LEADERS_SET -->				<th class="name"><span class="rank-img"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP -->{L_GROUP_MEMBERS}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></th>				<th class="posts"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></th>				<th class="info"><a href="{U_SORT_WEBSITE}#memberlist">{L_WEBSITE}</a>{L_COMMA_SEPARATOR}<a href="{U_SORT_LOCATION}">{L_LOCATION}</a></th>				<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
+				<find><![CDATA[<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
 				<action type="after-add"><![CDATA[			<th class="ltime"><a href="{U_SORT_LTIME}#memberlist">{L_LOCAL_TIME}</a></th>]]></action>
 			</edit>
 			<edit>
-				<find><![CDATA[<!-- ELSEIF S_SHOW_GROUP -->			<th class="name">{L_GROUP_MEMBERS}</th>			<th class="posts">&nbsp;</th>			<th class="info">&nbsp;</th>			<th class="joined">&nbsp;</th></find>]]></find>
+				<find><![CDATA[<th class="joined">&nbsp;</th>]]></find>
 				<action type="after-add"><![CDATA[		<th class="ltime">&nbsp;</th>]]></action>
 			</edit>
+			<edit>
+				<find><![CDATA[<td>{memberrow.JOINED}</td>]]></find>
+				<action type="after-add"><![CDATA[<td class="ltime">{memberrow.LTIME}</td>]]></action>
 		</open>
 		<open src="styles/prosilver/template/viewtopic_body.html">
 			<edit>
