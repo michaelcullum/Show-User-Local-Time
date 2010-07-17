@@ -43,45 +43,25 @@
 				<action type="after-add"><![CDATA[   'LOCAL_TIME'                  => 'Local time',]]></action>
 			</edit>
 		</open>
+		<open src="styles/prosilver/template/memberlist_body.html">
+			<edit>
+				<find><![CDATA[		<tr>				<th class="name"><span class="rank-img"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></th>				<th class="posts"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></th>				<th class="info"><a href="{U_SORT_WEBSITE}#memberlist">{L_WEBSITE}</a>{L_COMMA_SEPARATOR}<a href="{U_SORT_LOCATION}">{L_LOCATION}</a></th>				<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
+				<action type="after-add"><![CDATA[			<th class="ltime"><a href="{U_SORT_LTIME}#memberlist">{L_LOCAL_TIME}</a></th>]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[	<!-- IF not S_LEADERS_SET -->				<th class="name"><span class="rank-img"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP -->{L_GROUP_MEMBERS}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></th>				<th class="posts"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></th>				<th class="info"><a href="{U_SORT_WEBSITE}#memberlist">{L_WEBSITE}</a>{L_COMMA_SEPARATOR}<a href="{U_SORT_LOCATION}">{L_LOCATION}</a></th>				<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
+				<action type="after-add"><![CDATA[			<th class="ltime"><a href="{U_SORT_LTIME}#memberlist">{L_LOCAL_TIME}</a></th>]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[<!-- ELSEIF S_SHOW_GROUP -->			<th class="name">{L_GROUP_MEMBERS}</th>			<th class="posts">&nbsp;</th>			<th class="info">&nbsp;</th>			<th class="joined">&nbsp;</th></find>]]></find>
+				<action type="after-add"><![CDATA[		<th class="ltime">&nbsp;</th>]]></action>
+			</edit>
+		</open>
 		<open src="styles/prosilver/template/viewtopic_body.html">
 			<edit>
 				<find><![CDATA[      <!-- IF postrow.POSTER_FROM --><dd><strong>{L_LOCATION}:</strong> {postrow.POSTER_FROM}</dd><!-- ENDIF -->]]></find>
 				<action type="after-add"><![CDATA[      <!-- IF postrow.POSTER_LOCAL_TIME --><dd><strong>{L_LOCAL_TIME}:</strong> {postrow.POSTER_LOCAL_TIME}</dd><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
-		<open src="styles/prosilver/template/memberlist_body.html">
-			<edit>
-				<find><![CDATA[		<tr>
-				<th class="name"><span class="rank-img"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP and .memberrow -->{L_GROUP_LEADER}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></th>
-				<th class="posts"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></th>
-				<th class="info"><a href="{U_SORT_WEBSITE}#memberlist">{L_WEBSITE}</a>{L_COMMA_SEPARATOR}<a href="{U_SORT_LOCATION}">{L_LOCATION}</a></th>
-				<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
-				<action type="after-add"><![CDATA[			<th class="ltime"><a href="{U_SORT_LTIME}#memberlist">{L_LOCAL_TIME}</a></th>]]></action>
-			</edit>
-			<edit>
-				<find><![CDATA[	<!-- IF not S_LEADERS_SET -->
-				<th class="name"><span class="rank-img"><a href="{U_SORT_RANK}">{L_RANK}</a></span><a href="{U_SORT_USERNAME}"><!-- IF S_SHOW_GROUP -->{L_GROUP_MEMBERS}<!-- ELSE -->{L_USERNAME}<!-- ENDIF --></a></th>
-				<th class="posts"><a href="{U_SORT_POSTS}#memberlist">{L_POSTS}</a></th>
-				<th class="info"><a href="{U_SORT_WEBSITE}#memberlist">{L_WEBSITE}</a>{L_COMMA_SEPARATOR}<a href="{U_SORT_LOCATION}">{L_LOCATION}</a></th>
-				<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
-				<action type="after-add"><![CDATA[			<th class="ltime"><a href="{U_SORT_LTIME}#memberlist">{L_LOCAL_TIME}</a></th>]]></action>
-			</edit>
-			<edit>
-				<find><![CDATA[<!-- ELSEIF S_SHOW_GROUP -->
-			<th class="name">{L_GROUP_MEMBERS}</th>
-			<th class="posts">&nbsp;</th>
-			<th class="info">&nbsp;</th>
-			<th class="joined">&nbsp;</th></find>]]></find>
-				<action type="after-add"><![CDATA[		<th class="ltime">&nbsp;</th>]]></action>
-		</open>
-		<open src="memberlist.php">
-			<edit>
-				<find><![CDATA[					'S_CUSTOM_PROFILE'	=> (isset($cp_row['row']) && sizeof($cp_row['row'])) ? true : false,
-					'S_GROUP_LEADER'	=> $is_leader,]]></find>
-				<action type="after-add"><![CDATA[		'LTIME'         => gmdate($user->date_format, time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
-			</edit>
-		</open>
-		<diy-instructions lang="en"><![CDATA[Refresh your cache
-Rrefresh your prosilver templates.]]></diy-instructions>
 	</action-group>
 </mod>
