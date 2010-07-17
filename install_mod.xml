@@ -15,7 +15,7 @@
 				<email><![CDATA[sa.chelsea@live.co.uk]]></email>
 			</author>
 		</author-group>
-		<mod-version>0.0.1</mod-version>
+		<mod-version>1.0.0</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>240</time>
@@ -23,6 +23,12 @@
 		</installation>
 	</header>
 	<action-group>
+		<open src="memberlist.php">
+			<edit>
+				<find><![CDATA['S_GROUP_LEADER'	=> $is_leader,]]></find>
+				<action type="after-add"><![CDATA['LTIME'             => gmdate($user->date_format, time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
+			</edit>
+		</open>
 		<open src="viewtopic.php">
 			<edit>
 				<find><![CDATA[				'from'			=> '',]]></find>
@@ -63,5 +69,7 @@
 				<action type="after-add"><![CDATA[      <!-- IF postrow.POSTER_LOCAL_TIME --><dd><strong>{L_LOCAL_TIME}:</strong> {postrow.POSTER_LOCAL_TIME}</dd><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
+		<diy-instructions lang="en"><![CDATA[Purge your cache.
+Refresh your Style Template.]]></diy-instructions>
 	</action-group>
 </mod>
