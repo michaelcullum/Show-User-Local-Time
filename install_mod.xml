@@ -65,6 +65,7 @@
 			<edit>
 				<find><![CDATA[<td>{memberrow.JOINED}</td>]]></find>
 				<action type="after-add"><![CDATA[<td class="ltime">{memberrow.LTIME}</td>]]></action>
+			</edit>
 		</open>
 		<open src="styles/prosilver/template/viewtopic_body.html">
 			<edit>
