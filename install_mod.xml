@@ -68,19 +68,19 @@
 			</edit>
 			<edit>
 				<find><![CDATA[<!-- ELSEIF S_SHOW_GROUP -->
-		<th class="name">{L_GROUP_MEMBERS}</th>
-		<th class="posts">&nbsp;</th>
-		<th class="info">&nbsp;</th>
-		<th class="joined">&nbsp;</th></find>]]></find>
+			<th class="name">{L_GROUP_MEMBERS}</th>
+			<th class="posts">&nbsp;</th>
+			<th class="info">&nbsp;</th>
+			<th class="joined">&nbsp;</th></find>]]></find>
 				<action type="after-add"><![CDATA[		<th class="ltime">&nbsp;</th>]]></action>
-
+		</open>
 		<open src="memberlist.php">
 			<edit>
 				<find><![CDATA[					'S_CUSTOM_PROFILE'	=> (isset($cp_row['row']) && sizeof($cp_row['row'])) ? true : false,
 					'S_GROUP_LEADER'	=> $is_leader,]]></find>
 				<action type="after-add"><![CDATA[		'LTIME'         => gmdate($user->date_format, time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
 			</edit>
-		
+		</open>
 		<diy-instructions lang="en"><![CDATA[Refresh your cache
 Rrefresh your prosilver templates.]]></diy-instructions>
 	</action-group>
