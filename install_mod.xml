@@ -25,13 +25,14 @@
 	<action-group>
 		<open src="memberlist.php">
 			<edit>
-				<find><![CDATA['S_GROUP_LEADER'	=> $is_leader,]]></find>
-				<action type="after-add"><![CDATA['LTIME'             => gmdate($user->date_format, time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
+				<find><![CDATA[			'POSTS_IN_QUEUE'=> $member['posts_in_queue'],]]></find>
+				<action type="after-add"><![CDATA['LTIME'             => gmdate($user->date_format, time() + ($member['user_timezone'] * 3600) + ($member['user_dst'] * 3600)),]]></action>
 			</edit>
 			<edit>
-				<find><![CDATA['POSTS_IN_QUEUE'=> $member['posts_in_queue'],]]></find>
-				<action type="after-add"><![CDATA[			'LTIME'         => gmdate($user->date_format, time() + ($member['user_timezone'] * 3600) + ($member['user_dst'] * 3600)),]]></action>
-			</edit
+				<find><![CDATA[					'S_CUSTOM_PROFILE'	=> (isset($cp_row['row']) && sizeof($cp_row['row'])) ? true : false,
+				'S_GROUP_LEADER'	=> $is_leader,]]></find>
+				<action type="after-add"><![CDATA[		'LTIME'         => gmdate($user->date_format, time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
+			</edit>
 		</open>
 		<open src="viewtopic.php">
 			<edit>
@@ -56,7 +57,7 @@
 		<open src="styles/prosilver/template/memberlist_body.html">
 			<edit>
 				<find><![CDATA[<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
-				<action type="after-add"><![CDATA[			<th class="ltime"><a href="{U_SORT_LTIME}#memberlist">{L_LOCAL_TIME}</a></th>]]></action>
+				<action type="after-add"><![CDATA[			<th class="ltime"><a>{L_LOCAL_TIME}</a></th>]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
