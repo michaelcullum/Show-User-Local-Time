@@ -30,7 +30,7 @@
 			</edit>
 			<edit>
 				<find><![CDATA['POSTS_IN_QUEUE'=> $member['posts_in_queue'],]]></find>
-				<action type="after-add"><![CDATA[			'LTIME'         => gmdate($user->date_format, time() + ($member['user_timezone'] * 3600) + ($member['user_dst'] * 3600)),]]</action>
+				<action type="after-add"><![CDATA[			'LTIME'         => gmdate($user->date_format, time() + ($member['user_timezone'] * 3600) + ($member['user_dst'] * 3600)),]]></action>
 			</edit
 		</open>
 		<open src="viewtopic.php">
