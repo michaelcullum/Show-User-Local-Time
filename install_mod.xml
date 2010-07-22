@@ -56,7 +56,7 @@
 		</open>
 		<open src="styles/prosilver/template/memberlist_body.html">
 			<edit>
-				<find><![CDATA[<th class=joined><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
+				<find><![CDATA[				<find><![CDATA[<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
 				<action type="after-add"><![CDATA[			<th><a>{L_LOCAL_TIME}</a></th>]]></action>
 			</edit>
 			<edit>
