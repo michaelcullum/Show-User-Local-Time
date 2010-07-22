@@ -56,20 +56,20 @@
 		</open>
 		<open src="styles/prosilver/template/memberlist_body.html">
 			<edit>
-				<find><![CDATA[<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
-				<action type="after-add"><![CDATA[			<th class="ltime"><a>{L_LOCAL_TIME}</a></th>]]></action>
+				<find><![CDATA[<th><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
+				<action type="after-add"><![CDATA[			<th><a>{L_LOCAL_TIME}</a></th>]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
-				<action type="after-add"><![CDATA[			<th class="ltime"><a>{L_LOCAL_TIME}</a></th>]]></action>
+				<action type="after-add"><![CDATA[			<th ><a>{L_LOCAL_TIME}</a></th>]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[<th class="joined">&nbsp;</th>]]></find>
-				<action type="after-add"><![CDATA[		<th class="ltime">&nbsp;</th>]]></action>
+				<action type="after-add"><![CDATA[		<th>&nbsp;</th>]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[<td>{memberrow.JOINED}</td>]]></find>
-				<action type="after-add"><![CDATA[<td class="ltime">{memberrow.LTIME}</td>]]></action>
+				<action type="after-add"><![CDATA[<td>{memberrow.LTIME}</td>]]></action>
 			</edit>
 		</open>
 		<open src="styles/prosilver/template/memberlist_view.html">
