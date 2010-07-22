@@ -61,7 +61,7 @@
 			</edit>
 			<edit>
 				<find><![CDATA[<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
-				<action type="after-add"><![CDATA[			<th class="ltime"><a href="{U_SORT_LTIME}#memberlist">{L_LOCAL_TIME}</a></th>]]></action>
+				<action type="after-add"><![CDATA[			<th class="ltime"><a>{L_LOCAL_TIME}</a></th>]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[<th class="joined">&nbsp;</th>]]></find>
