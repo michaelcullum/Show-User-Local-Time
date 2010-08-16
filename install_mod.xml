@@ -57,11 +57,11 @@
 		<open src="styles/prosilver/template/memberlist_body.html">
 			<edit>
 				<find><![CDATA[<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
-				<action type="after-add"><![CDATA[			<th><a>{L_LOCAL_TIME}</a></th>]]></action>
+				<action type="after-add"><![CDATA[			<th class="joined">{L_LOCAL_TIME}</th>]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[<th class="joined"><a href="{U_SORT_JOINED}#memberlist">{L_JOINED}</a></th>]]></find>
-				<action type="after-add"><![CDATA[			<th ><a>{L_LOCAL_TIME}</a></th>]]></action>
+				<action type="after-add"><![CDATA[			<th class="joined">{L_LOCAL_TIME}</th>]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[<th class="joined">&nbsp;</th>]]></find>
@@ -84,7 +84,6 @@
 				<action type="after-add"><![CDATA[      <!-- IF postrow.POSTER_LOCAL_TIME --><dd><strong>{L_LOCAL_TIME}:</strong> {postrow.POSTER_LOCAL_TIME}</dd><!-- ENDIF -->]]></action>
 			</edit>
 		</open>
-		<diy-instructions lang="en"><![CDATA[Purge your cache.
-Refresh your Style Template.]]></diy-instructions>
+		<diy-instructions lang="en"><![CDATA[Refresh your Style Template.]]></diy-instructions>
 	</action-group>
 </mod>
