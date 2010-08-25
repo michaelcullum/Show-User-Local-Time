@@ -41,7 +41,7 @@
 			</edit>
 			<edit>
 				<find><![CDATA[				'from'			=> (!empty($row['user_from'])) ? $row['user_from'] : '',]]></find>
-				<action type="after-add"><![CDATA[            'user_time'      => gmdate($user->date_format, time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
+				<action type="after-add"><![CDATA[            'user_time'      => $user->format_date(time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[		'POSTER_AGE'		=> $user_cache[$poster_id]['age'],]]></find>
