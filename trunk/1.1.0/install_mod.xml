@@ -26,12 +26,12 @@
 		<open src="memberlist.php">
 			<edit>
 				<find><![CDATA[			'POSTS_IN_QUEUE'=> $member['posts_in_queue'],]]></find>
-				<action type="after-add"><![CDATA['LTIME'             => gmdate($user->date_format, time() + ($member['user_timezone'] * 3600) + ($member['user_dst'] * 3600)),]]></action>
+				<action type="after-add"><![CDATA['LTIME'             => gmdate(str_replace('|', '', $user->date_format), time() + ($member['user_timezone'] * 3600) + ($member['user_dst'] * 3600)),]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[					'S_CUSTOM_PROFILE'	=> (isset($cp_row['row']) && sizeof($cp_row['row'])) ? true : false,
 				'S_GROUP_LEADER'	=> $is_leader,]]></find>
-				<action type="after-add"><![CDATA[		'LTIME'         => gmdate($user->date_format, time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
+				<action type="after-add"><![CDATA[					'LTIME'        		=> gmdate(str_replace('|', '', $user->date_format), time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
 			</edit>
 		</open>
 		<open src="viewtopic.php">
@@ -41,7 +41,7 @@
 			</edit>
 			<edit>
 				<find><![CDATA[				'from'			=> (!empty($row['user_from'])) ? $row['user_from'] : '',]]></find>
-				<action type="after-add"><![CDATA[            'user_time'      => $user->format_date(time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
+				<action type="after-add"><![CDATA[            'user_time'      => gmdate(str_replace('|', '', $user->date_format), time() + ($row['user_timezone'] * 3600) + ($row['user_dst'] * 3600)),]]></action>
 			</edit>
 			<edit>
 				<find><![CDATA[		'POSTER_AGE'		=> $user_cache[$poster_id]['age'],]]></find>
